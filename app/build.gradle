@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        applicationId "com.example.gptsnap"
+        minSdkVersion 33
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "String", "CHATGPT_API_KEY", "\"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\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // Use applicationId as the namespace
+    namespace defaultConfig.applicationId
+}
+
+
+dependencies {
+
+    implementation 'org.json:json:20210307'
+    implementation 'com.google.mlkit:text-recognition:16.0.0-beta6'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.camera:camera-core:1.0.1'
+    implementation 'androidx.camera:camera-camera2:1.0.1'
+    implementation 'androidx.camera:camera-lifecycle:1.0.1'
+    implementation 'androidx.camera:camera-view:1.0.0-alpha27'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+}
